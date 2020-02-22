@@ -13,7 +13,7 @@ jobs:
     steps:
       - run: echo "deploy"
 
-workflow:
+workflows:
   version: 2
 
   stage_workflow:
