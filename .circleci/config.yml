@@ -13,18 +13,3 @@ jobs:
     steps:
       - run: echo "deploy"
 
-workflows:
-  version: 2
-
-  stage_workflow:
-    jobs:
-      - build:
-          filters:
-            branches:
-              only: master
-      - deploy:
-          filters:
-            branches:
-              only: master
-          requires:
-            - build
