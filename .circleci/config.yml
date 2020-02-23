@@ -7,11 +7,17 @@ jobs:
     steps:
       - run: echo "build"
 
-  deploy:
+  deploy: &deploy-env
     docker:
       - image: circleci/python:latest
     steps:
       - run: echo "deploy"
+      - run: bash ./scripts/apply_${env}.sh
+
+  deploy_stage:
+    <<: *deploy-env
+    environment:
+      env: stage
 
 workflows:
   version: 2
@@ -21,10 +27,10 @@ workflows:
       - build:
           filters:
             branches:
-              only: master
-      - deploy:
+              only: terraform-testing
+      - deploy_stage:
           filters:
             branches:
-              only: master
+              only: terraform-testing
           requires:
             - build 
