@@ -28,7 +28,7 @@ workflows:
           filters:
             branches:
               only: terraform-testing
-      - deploy_stage:
+      - deploy:
           filters:
             branches:
               only: terraform-testing
