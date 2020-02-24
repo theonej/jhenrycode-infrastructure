@@ -12,12 +12,12 @@ jobs:
       - image: circleci/python:latest
     steps:
       - run: echo "deploy"
-      - run: bash ./scripts/apply_${env}.sh
+      - run: bash ./scripts/apply_${tag}.sh
 
   deploy_stage:
-    <<: *deploy
+    <<: *deploy-env
     environment:
-      env: stage
+      tag: stage
 
 workflows:
   version: 2
