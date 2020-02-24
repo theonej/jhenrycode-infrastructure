@@ -12,8 +12,11 @@ jobs:
       - image: circleci/python:latest
     
     working_directory: ~/jhenrycode-infrastructure
-    
+
     steps:
+      - checkout
+      - setup_remote_docker 
+
       - run: echo "deploy"
       - run: ls
       - run: bash ./scripts/apply_${tag}.sh
