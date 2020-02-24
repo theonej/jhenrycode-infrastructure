@@ -12,6 +12,7 @@ jobs:
       - image: circleci/python:latest
     steps:
       - run: echo "deploy"
+      - run: bash ls
       - run: bash ./scripts/apply_${tag}.sh
 
   deploy_stage:
