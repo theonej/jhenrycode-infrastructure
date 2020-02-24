@@ -10,10 +10,13 @@ jobs:
   deploy: &deploy-env
     docker:
       - image: circleci/python:latest
+    
+    working_directory: ~/jhenrycode-infrastructure
+    
     steps:
       - run: echo "deploy"
       - run: ls
-      - run: bash ../scripts/apply_${tag}.sh
+      - run: bash ./scripts/apply_${tag}.sh
 
   deploy_stage:
     <<: *deploy-env
