@@ -15,7 +15,7 @@ jobs:
       - run: bash ./scripts/apply_${env}.sh
 
   deploy_stage:
-    <<: *deploy-env
+    <<: *deploy
     environment:
       env: stage
 
