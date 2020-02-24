@@ -18,7 +18,7 @@ jobs:
       - setup_remote_docker 
 
       - run: echo "deploy"
-      - run: ls
+      - run: bash ./scripts/install_terraform.sh
       - run: bash ./scripts/apply_${tag}.sh
 
   deploy_stage:
