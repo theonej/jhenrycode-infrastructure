@@ -20,6 +20,7 @@ jobs:
       - run: echo "deploy"
       - run: bash ./scripts/install_terraform.sh
       - run: bash ./scripts/apply_${tag}.sh
+      - run: echo "deployed successfully"
 
   deploy_stage:
     <<: *deploy-env
