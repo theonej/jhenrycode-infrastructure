@@ -1,5 +1,5 @@
 set -e
 
-set env = "Stage"
+export env="stage"
 
 . ./scripts/apply.sh
