@@ -7,11 +7,29 @@ jobs:
     steps:
       - run: echo "build"
 
-  deploy:
+  deploy: &deploy-env
     docker:
       - image: circleci/python:latest
+    
+    working_directory: ~/jhenrycode-infrastructure
+
     steps:
+      - checkout 
+      - setup_remote_docker
+
       - run: echo "deploy"
+      - run: bash ./scripts/install_terraform.sh
+      - run: bash ./scripts/apply_${tag}.sh
+
+  deploy_stage:
+    <<: *deploy-env
+    environment:
+      tag: stage
+
+  deploy_prod:
+    <<: *deploy-env
+    environment:
+      tag: prod
 
 workflows:
   version: 2
@@ -22,7 +40,7 @@ workflows:
           filters:
             branches:
               only: master
-      - deploy:
+      - deploy_stage:
           filters:
             branches:
               only: master
