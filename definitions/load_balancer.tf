@@ -52,3 +52,7 @@ resource "aws_lb_listener_rule" "vision-prediction" {
         }
     }
 }
+
+output "target_group_arn" {
+    value = aws_alb_target_group.http.arn
+}

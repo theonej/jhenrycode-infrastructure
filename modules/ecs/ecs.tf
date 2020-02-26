@@ -35,18 +35,15 @@ resource "aws_ecs_service" "vision-predictions" {
     launch_type = "FARGATE"
 
     network_configuration {
-        security_groups = [aws_security_group.jhenrycode-vision.id]
-        subnets = aws_subnet.public.*.id
+        security_groups = [var.security_group_id]
+        subnets = var.subnet_ids
         assign_public_ip = true
     }
 
     load_balancer {
-        target_group_arn = aws_alb_target_group.http.arn
+        target_group_arn = var.target_group_arn
         container_name = "vision-predictions"
         container_port = var.vision_prediction_port
     }
 
-    depends_on =[
-        "aws_alb_listener.jhenrycode-vision"
-    ]
 }

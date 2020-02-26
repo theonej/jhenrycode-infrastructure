@@ -10,28 +10,8 @@ variable "env" {
     default = "stage"
 }
 
-variable "account" {
-    default = "319304591743"
-}
-
 variable "az_count" {
     default = 2
-}
-
-variable "vision_predictions_task_definition_path" {
-
-}
-
-variable "ecs_role_arn" {
-     default ="arn:aws:iam::319304591743:role/jhenrycode-vision-ecs-role"
-}
-
-variable "vision_predictions_cpu" {
-    default = "256"
-}
-
-variable "vision_predictions_memory" {
-    default = "512"
 }
 
 variable "tag" {

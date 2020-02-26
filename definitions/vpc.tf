@@ -19,3 +19,7 @@ resource "aws_subnet" "public" {
 resource "aws_internet_gateway" "jhenrycode-vision-igw"{
     vpc_id = aws_vpc.jhenrycode-vision.id
 }
+
+output "subnet_ids" {
+    value = aws_subnet.public.*.id
+}
