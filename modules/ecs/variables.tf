@@ -18,10 +18,6 @@ variable "az_count" {
     default = 2
 }
 
-variable "vision_predictions_task_definition_path" {
-
-}
-
 variable "ecs_role_arn" {
      default ="arn:aws:iam::319304591743:role/jhenrycode-vision-ecs-role"
 }
@@ -47,5 +43,5 @@ variable "subnet_ids" {
 }
 
 variable "target_group_arn" {
-    
+
 }

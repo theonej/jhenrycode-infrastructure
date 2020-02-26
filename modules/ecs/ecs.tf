@@ -3,7 +3,7 @@ resource "aws_ecs_cluster" "jhenrycode-vision" {
 }
 
 data "template_file" "vision-predictions" {
-    template = file(var.vision_predictions_task_definition_path)
+    template = file("../../task-definitions/vision-predictions.json.tpl")
 
     vars = {
         account = var.account

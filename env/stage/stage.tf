@@ -22,6 +22,4 @@ module "vision-predictions" {
     security_group_id = module.jhenrycode-vision.security_group_id
     subnet_ids = module.jhenrycode-vision.subnet_ids
     target_group_arn = module.jhenrycode-vision.target_group_arn
-    
-    vision_predictions_task_definition_path = "../../task-definitions/vision-predictions.json.tpl"
 }
