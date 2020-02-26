@@ -23,3 +23,15 @@ module "vision-predictions" {
     subnet_ids = module.jhenrycode-vision.subnet_ids
     target_group_arn = module.jhenrycode-vision.target_group_arn
 }
+
+outputs "security_group_id" {
+    value = module.jhenrycode-vision.security_group_id
+}
+
+outputs "subnet_ids" {
+    value = module.jhenrycode-vision.subnet_ids
+}
+
+outputs "target_group_arn" {
+    value = module.jhenrycode-vision.target_group_arn
+}
