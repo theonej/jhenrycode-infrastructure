@@ -45,3 +45,7 @@ variable "subnet_ids" {
 variable "target_group_arn" {
 
 }
+
+variable "ecs_cluster_id" {
+    
+}
