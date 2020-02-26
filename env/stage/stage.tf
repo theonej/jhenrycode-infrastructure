@@ -16,14 +16,6 @@ module "jhenrycode-vision" {
     source = "../../definitions"
 }
 
-module "vision-predictions" {
-    source = "../../modules/ecs"
-
-    security_group_id = module.jhenrycode-vision.security_group_id
-    subnet_ids = module.jhenrycode-vision.subnet_ids
-    target_group_arn = module.jhenrycode-vision.target_group_arn
-}
-
 output "security_group_id" {
     value = module.jhenrycode-vision.security_group_id
 }
@@ -34,4 +26,8 @@ output "subnet_ids" {
 
 output "target_group_arn" {
     value = module.jhenrycode-vision.target_group_arn
+}
+
+output "ecs_cluster_id" {
+    value = module.jhenrycode-vision.ecs_cluster_id
 }

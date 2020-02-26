@@ -1,7 +1,3 @@
-resource "aws_ecs_cluster" "jhenrycode-vision" {
-    name = "jhenrycode-vision"
-}
-
 data "template_file" "vision-predictions" {
     template = file("${path.module}/../../task-definitions/vision-predictions.json.tpl")
 
@@ -29,7 +25,7 @@ resource "aws_ecs_task_definition" "vision-predictions" {
 resource "aws_ecs_service" "vision-predictions" {
     name = "vision-predictions"
 
-    cluster = aws_ecs_cluster.jhenrycode-vision.id
+    cluster = var.ecs_cluster_id
     task_definition = aws_ecs_task_definition.vision-predictions.arn
     desired_count = 1
     launch_type = "FARGATE"
