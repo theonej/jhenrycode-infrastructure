@@ -22,31 +22,10 @@ resource "aws_internet_gateway" "jhenrycode-vision-igw"{
     vpc_id = aws_vpc.jhenrycode-vision.id
 }
 
-resource "aws_eip" "internet_gw_eip" {
-    count = var.az_count
-    vpc = true
-    depends_on = [aws_internet_gateway.jhenrycode-vision-igw]
-}
-
-resource "aws_nat_gateway" "public_gw" {
-    count = var.az_count
-    subnet_id = element(aws_subnet.public.*.id, count.index)
-    allocation_id = element(aws_eip.internet_gw_eip.*.id, count.index)
-}
-
 resource "aws_route" "internet_access" {
     route_table_id = aws_vpc.jhenrycode-vision.main_route_table_id
     destination_cidr_block = "0.0.0.0/0"
     gateway_id = aws_internet_gateway.jhenrycode-vision-igw.id
-}
-
-resource "aws_route_table" "internet_access" {
-    count = var.az_count
-    vpc_id = aws_vpc.jhenrycode-vision.id
-    route {
-        cidr_block = "0.0.0.0/0"
-        nat_gateway_id = element(aws_nat_gateway.public_gw.*.id, count.index)
-    }
 }
 
 output "subnet_ids" {
