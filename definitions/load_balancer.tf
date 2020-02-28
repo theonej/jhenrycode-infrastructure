@@ -9,7 +9,7 @@ resource "aws_alb" "jhenrycode-vision" {
 
 resource "aws_alb_target_group" "http" {
     name = "jhenrycode-vision-http-listener"
-    port = var.vision_prediction_port
+    port = 9001
     protocol = "HTTP"
     vpc_id = aws_vpc.jhenrycode-vision.id
     target_type = "ip"
