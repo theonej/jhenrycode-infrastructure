@@ -20,7 +20,7 @@ resource "aws_alb_target_group" "http" {
         protocol = "HTTP"
         matcher = "200"
         timeout = "3"
-        path = "/prediction/version"
+        path = "/prediction/health-check"
         unhealthy_threshold = "2"
     }
 }
