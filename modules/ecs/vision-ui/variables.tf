@@ -1,4 +1,4 @@
-variable "vision_prediction_port" {
+variable "vision_ui_port" {
     default = "9001"
 }
 
@@ -22,11 +22,11 @@ variable "ecs_role_arn" {
      default ="arn:aws:iam::319304591743:role/jhenrycode-vision-ecs-role"
 }
 
-variable "vision_predictions_cpu" {
+variable "vision_ui_cpu" {
     default = "256"
 }
 
-variable "vision_predictions_memory" {
+variable "vision_ui_memory" {
     default = "512"
 }
 
