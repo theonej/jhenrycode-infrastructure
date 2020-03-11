@@ -1,5 +1,5 @@
 data "template_file" "vision-ui" {
-    template = file("${path.module}/../../task-definitions/vision-ui.json.tpl")
+    template = file("${path.module}/../../../task-definitions/vision-ui.json.tpl")
 
     vars = {
         account = var.account
